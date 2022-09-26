@@ -2,7 +2,7 @@
 variable "base_dir" {
   type        = string
   description = "The base directory in which this module will search for static files and templates."
-  default  = "Test"
+  default  = "TestingVariable"
 }
 
 output "tags_module" {
