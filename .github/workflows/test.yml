@@ -17,8 +17,6 @@ jobs:
     defaults:
       run:
         shell: bash
-    outputs:
-      version_matrix: ${{ steps.testing.outputs.version_matrix }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -60,6 +58,8 @@ jobs:
           echo ${SummaryFiles[@]}
           echo '::set-output name=version_matrix::${SummaryFiles}]'
         fi
+    outputs:
+      version_matrix: ${{ steps.testing.outputs.version_matrix }}
 
 
   ci:
