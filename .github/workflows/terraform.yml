@@ -29,10 +29,10 @@ jobs:
       run: terraform init
 
     - name: Terraform Plan
-      run: terraform plan -input=false -out tfplan
+      run: terraform plan -input=false -out tfplan.json
 
     - name: Terraform Job Summary
-      run:  terraform show tfplan 
+      run:  terraform show tfplan.json
 
     - name: Terraform Job Summary Test
-      run:  terraform show tfplan >> $GITHUB_STEP_SUMMARY
+      run:  terraform show tfplan.json >> $GITHUB_STEP_SUMMARY
