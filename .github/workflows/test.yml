@@ -56,7 +56,7 @@ jobs:
             SummaryFiles+="${entry},"
           done
           echo ${SummaryFiles[@]}
-          echo '${SummaryFiles}]'
+          echo '${SummaryFiles[@]}]'
         fi
     outputs:
       version_matrix: ${{ steps.testing.outputs.version_matrix }}
