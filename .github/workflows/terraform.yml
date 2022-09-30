@@ -52,6 +52,17 @@ jobs:
     - run: echo "<pre><code>18${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
     - run: echo "<pre><code>19${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
     - run: echo "<pre><code>20${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>21${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>22${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>23${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>24${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>25${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>26${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>27${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>28${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>29${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>30${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>31${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
     
     
     
