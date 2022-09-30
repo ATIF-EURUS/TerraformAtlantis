@@ -51,7 +51,6 @@ jobs:
         MAXSIZE=1000000
         declare -a SummaryFiles=[
         echo "Size of $FILENAME = $FILESIZE bytes."
-        ls
         if (( FILESIZE < MAXSIZE )); then
           echo "Less than 1MB" 
         else
