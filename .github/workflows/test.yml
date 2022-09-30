@@ -33,7 +33,7 @@ jobs:
         terraform plan -no-color
 
     - name: Plan File
-      run: echo  " ${{ steps.plan.outputs.stdout }} " >> ./TerraformPlanFiles/terraformplan
+      run: echo  " ${{ steps.plan.outputs.stdout }} " >> TerraformPlanFiles/terraformplan
 
     - name: Echo Plan File
       run: cat TerraformPlanFiles/terraformplan
@@ -41,7 +41,7 @@ jobs:
     - name: Conditoining 
       id: testing
       run: |
-        FILESIZE=$(stat -c%s "TerraformPlanFiles/terraformplan")
+        FILESIZE=$(stat -c%s "TerraformPlanFiles/test.txt")
         MAXSIZE=1000000
         declare -a SummaryFiles=[
         echo "Size of $FILENAME = $FILESIZE bytes."
@@ -49,7 +49,7 @@ jobs:
             echo "<pre><code>${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
         else
           cd TerraformPlanFiles
-          split -b $MAXSIZE terraformplan tfplan
+          split -b $MAXSIZE test.txt tfplan
           ls
           for entry in *
           do  
