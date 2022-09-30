@@ -34,4 +34,4 @@ jobs:
 #     - name: Terraform Job Summary
 #       run:  echo "### $(terraform show tfplan.json):code:" >> $GITHUB_STEP_SUMMARY
     - name: Terraform Job Summary t
-      run:  echo "### $(terraform show tfplan.json) :rocket:" >> $GITHUB_STEP_SUMMARY
+      run:  echo "### $(terraform show tfplan.json) :code:" >> $GITHUB_STEP_SUMMARY
