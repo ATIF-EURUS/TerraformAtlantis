@@ -45,22 +45,23 @@ jobs:
     - name: Conditoining 
       id: testing
       run: |
-        FILESIZE=$(stat -c%s "TerraformPlanFiles/terraformplan")
+        cd TerraformPlanFiles
+        FILESIZE=$(stat -c%s "terraformplan")
         MAXSIZE=1000000
         declare -a SummaryFiles=[
         echo "Size of $FILENAME = $FILESIZE bytes."
-        if (( FILESIZE < MAXSIZE)); then 
-            echo "<pre><code>${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+        if (( FILESIZE < MAXSIZE)); then
+          echo "Less than 1MB" 
+            # echo "<pre><code>${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
         else
-          cd TerraformPlanFiles
           split -b $MAXSIZE terraformplan tfplan
-          ls
-          for entry in *
-          do  
-            SummaryFiles+="'${entry}',"
-          done
-          echo ${SummaryFiles[@]}
-          echo ::set-output name=version_matrix::${SummaryFiles[@]}']'
+        ls
+        for entry in *
+        do  
+          SummaryFiles+="'${entry}',"
+        done
+        echo ${SummaryFiles[@]}
+        echo ::set-output name=version_matrix::${SummaryFiles[@]}']'
         fi
     outputs:
       version_matrix: ${{ steps.testing.outputs.version_matrix }}
