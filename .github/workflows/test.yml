@@ -38,7 +38,7 @@ jobs:
       run: cat terraformplan
     - name: Conditoining 
       run: |
-        FILESIZE=$(stat -c%s "terraformplan")
+        FILESIZE=$(stat -c%s "test.txt")
         MAXSIZE=1000000
         echo "Size of $FILENAME = $FILESIZE bytes."
         if (( FILESIZE < MAXSIZE)); then 
