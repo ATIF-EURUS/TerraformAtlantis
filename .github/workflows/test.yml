@@ -54,7 +54,7 @@ jobs:
           ls
           for entry in "tfplan"*
           do  
-            SummaryFiles+=+="\${entry}\,"
+            SummaryFiles+="${entry},"
           done
           echo ${SummaryFiles[@]}
           echo '::set-output name=version_matrix::${SummaryFiles[@]}'
