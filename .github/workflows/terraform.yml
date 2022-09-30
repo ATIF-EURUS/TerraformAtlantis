@@ -31,12 +31,5 @@ jobs:
     - name: Terraform Plan
       run: terraform plan -input=false -out tfplan.json
 
-#     - name: Terraform Job Summary
-#       run:  echo "### $(terraform show tfplan.json):code:" >> $GITHUB_STEP_SUMMARY
-#     - name: Terraform Job Summary t
-#       run:  echo "### $(terraform show tfplan.json) :code:" >> $GITHUB_STEP_SUMMAR- name: Markdown autodocs
-    - name: Code Coverage Report
-      uses: irongut/CodeCoverageSummary@v1.3.0
-      with:
-        filename: tfplan.json
-        format: markdown
+    - name: Terraform Job Summary
+      run:  echo "### $(terraform show tfplan.json) :rocket:" >> $GITHUB_STEP_SUMMARY
