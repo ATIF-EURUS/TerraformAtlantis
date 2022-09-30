@@ -63,6 +63,7 @@ jobs:
           SummaryFiles+="'${entry}',"
         done
         echo ${SummaryFiles[@]}
+        SummaryFiles+=']'
         echo ::set-output name=version_matrix::${SummaryFiles[@]}"]"
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
