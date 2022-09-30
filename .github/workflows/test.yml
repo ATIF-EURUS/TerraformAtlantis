@@ -33,7 +33,7 @@ jobs:
         terraform plan -no-color
 
     - name: Plan File
-      run: echo  " ${{ steps.plan.outputs.stdout }} " >> TerraformPlanFiles/terraformplan
+      run: echo  " ${{ steps.plan.outputs.stdout }} " >> ./TerraformPlanFiles/terraformplan
 
     - name: Echo Plan File
       run: cat TerraformPlanFiles/terraformplan
