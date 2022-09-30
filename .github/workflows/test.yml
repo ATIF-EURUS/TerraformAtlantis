@@ -45,6 +45,7 @@ jobs:
     - name: Conditoining 
       id: testing
       run: |
+        ls
         cd TerraformPlanFiles
         FILESIZE=$(stat -c%s "test.txt")
         MAXSIZE=1000000
