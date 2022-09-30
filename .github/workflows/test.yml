@@ -44,6 +44,6 @@ jobs:
         if (( FILESIZE < MAXSIZE)); then 
             echo "<pre><code>${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
         else
-           split -l $MAXSIZE test.txt segment
+           split -b $MAXSIZE test.txt segment
            ls
         fi
