@@ -54,7 +54,7 @@ jobs:
     - run: echo "<pre><code>20${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
     
   terraform2:
-    name: 'Terraforms'
+    name: 'Terraform 2'
     runs-on: ubuntu-latest
     environment: production
     
@@ -96,4 +96,56 @@ jobs:
     - run: echo "<pre><code>18${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
     - run: echo "<pre><code>19${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
     - run: echo "<pre><code>20${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    
+    
+  terraform3:
+    name: 'Terraform 3'
+    runs-on: ubuntu-latest
+    environment: production
+    
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Checkouts
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color
+      
+    - run: echo "<pre><code>1${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>2${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>3${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>4${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>5${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>6${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>7${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>8${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>9${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>10${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>11${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>12${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>13${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>14${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>15${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>16${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>17${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>18${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>19${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>20${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>21${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>22${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>23${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>24${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>25${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>26${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - run: echo "<pre><code>27${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
 
