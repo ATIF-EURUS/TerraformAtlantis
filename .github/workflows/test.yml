@@ -63,6 +63,11 @@ jobs:
         echo ${SummaryFiles[@]}
         echo ::set-output name=version_matrix::${SummaryFiles[@]}']'
         fi
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: TerraformPlanFiles
     outputs:
       version_matrix: ${{ steps.testing.outputs.version_matrix }}
 
@@ -74,6 +79,8 @@ jobs:
       matrix:
         version: ${{ fromJson(needs.terraform.outputs.version_matrix) }}
     steps:
-      - uses: actions/checkout@v2
-      - run: echo "hi"
-      # - run: echo "<pre><code>$(cat {{ matrix.version }})</code></pre>" >> $GITHUB_STEP_SUMMARY
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
+      - run: echo "<pre><code>$(cat {{ matrix.version }})</code></pre>" >> $GITHUB_STEP_SUMMARY
