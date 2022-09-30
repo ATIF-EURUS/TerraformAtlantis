@@ -31,8 +31,5 @@ jobs:
     - name: Terraform Plan
       run: terraform plan -input=false -out tfplan
 
-    - name: Terraform Job Summar
+    - name: Terraform Job Summary
       run:  terraform show tfplan >> $GITHUB_STEP_SUMMARY
-      
-    - name: Generate list using Markdown
-      run:  echo  $GITHUB_STEP_SUMMARY
