@@ -29,7 +29,8 @@ jobs:
       run: terraform init
 
     - name: Terraform Plan
-      run: terraform plan -input=false -out tfplan.json
+      id: plan
+      run: terraform plan -no-color
 
     - name: Terraform Job Summary
-      run:  echo "<pre><code>### $(terraform show tfplan.json)</code></pre> :rocket:" >> $GITHUB_STEP_SUMMARY
+      run:  echo "<pre><code> $(steps.plan.outputs.stdout)</code></pre>" >> $GITHUB_STEP_SUMMARY
