@@ -35,7 +35,8 @@ jobs:
     - name: Plan File
       run: |
         echo  " ${{ steps.plan.outputs.stdout }} " >> terraformplan
-        mv terraformplan ./TerraformPlanFiles/terraformplan
+        # mv terraformplan ./TerraformPlanFiles/terraformplan
+        ls
 
     - name: Echo Plan File
       run: cat TerraformPlanFiles/terraformplan
