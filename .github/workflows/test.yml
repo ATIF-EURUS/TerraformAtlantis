@@ -85,5 +85,5 @@ jobs:
         with:
           name: my-artifact
       - run: ls
-      - run: echo ${{ matrix.version }}
+      - run: cat ${{ matrix.version }}
       - run: echo "<pre><code>$(cat ${{ matrix.version }})</code></pre>" >> $GITHUB_STEP_SUMMARY
