@@ -36,3 +36,7 @@ jobs:
       run: echo  " ${{ steps.plan.outputs.stdout }} " >> terraformplan
     - name: Echo Plan File
       run: cat terraformplan
+    - name: Conditoining
+      run: |
+        FILESIZE=$(stat -c%s "terraformplan")
+        echo "Size of $FILENAME = $FILESIZE bytes."
