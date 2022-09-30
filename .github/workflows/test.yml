@@ -63,7 +63,7 @@ jobs:
 
 
   ci:
-    needs: build-matrix
+    needs: terraform
     runs-on: ubuntu-latest
     strategy:
       matrix:
