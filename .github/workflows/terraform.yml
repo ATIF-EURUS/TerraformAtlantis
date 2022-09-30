@@ -32,7 +32,7 @@ jobs:
       id: plan
       run: terraform plan -no-color
       
-    - run: echo ${{ steps.plan.outputs.stdout }}
+    - run: echo "${{ steps.plan.outputs.stdout }}"
 
     - name: Terraform Job Summary
       run:  echo "<pre><code> $(steps.plan.outputs.stdout)</code></pre>" >> $GITHUB_STEP_SUMMARY
