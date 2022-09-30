@@ -41,7 +41,7 @@ jobs:
     - name: Conditoining 
       id: testing
       run: |
-        FILESIZE=$(stat -c%s "TerraformPlanFiles/test.txt")
+        FILESIZE=$(stat -c%s "TerraformPlanFiles/terraformplan")
         MAXSIZE=1000000
         declare -a SummaryFiles=[
         echo "Size of $FILENAME = $FILESIZE bytes."
@@ -49,9 +49,9 @@ jobs:
             echo "<pre><code>${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
         else
           cd TerraformPlanFiles
-          split -b $MAXSIZE test.txt tfplan
+          split -b $MAXSIZE terraformplan tfplan
           ls
-          for entry in "tfplan"*
+          for entry in *
           do  
             SummaryFiles+="'${entry}',"
           done
