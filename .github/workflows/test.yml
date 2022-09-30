@@ -17,7 +17,8 @@ jobs:
     defaults:
       run:
         shell: bash
-
+    # outputs:
+    #   version_matrix: ${{ steps.set-matrix.outputs.version_matrix }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -52,9 +53,20 @@ jobs:
           split -b $MAXSIZE test.txt tfplan
           # ls
           for entry in "tfplan"*
-          do
+          do  
             arrVar=(${SummaryFiles[@]} "$entry")
           done
-          echo "$entry"
+          echo "$entry[@]"
+          # echo '::set-output name=version_matrix::$entry[@]'
         fi
 
+
+  # ci:
+  #   needs: build-matrix
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       version: ${{ fromJson(needs.terraform.outputs.version_matrix) }}
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - run: echo ${{ matrix.version }}
