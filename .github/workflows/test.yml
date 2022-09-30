@@ -49,6 +49,7 @@ jobs:
         else
           cd TerraformPlanFiles
           split -b $MAXSIZE test.txt tfplan
+          mv tfplan* TerraformPlanFiles/
           ls
         fi
 
