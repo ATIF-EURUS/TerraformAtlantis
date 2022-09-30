@@ -44,7 +44,7 @@ jobs:
       run: |
         FILESIZE=$(stat -c%s "TerraformPlanFiles/test.txt")
         MAXSIZE=1000000
-        declare -a SummaryFiles=[
+        declare -a SummaryFiles=()
         echo "Size of $FILENAME = $FILESIZE bytes."
         if (( FILESIZE < MAXSIZE)); then 
             echo "<pre><code>${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
@@ -54,7 +54,7 @@ jobs:
           # ls
           for entry in "tfplan"*
           do  
-            SummaryFiles+="'${entry}',"
+            SummaryFiles+="${entry}"
             # SummaryFiles=(${SummaryFiles[@]} "$entry")
           done
           echo ${SummaryFiles[@]}
@@ -63,11 +63,11 @@ jobs:
 
 
   ci:
-    needs: terraform
+    needs: build-matrix
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: ${{ fromJson(needs.terraform.outputs.version_matrix) }}
+        version: (needs.terraform.outputs.version_matrix)
     steps:
       - uses: actions/checkout@v2
       - run: echo ${{ matrix.version }}
