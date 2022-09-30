@@ -54,9 +54,9 @@ jobs:
           # ls
           for entry in "tfplan"*
           do  
-            arrVar=(${SummaryFiles[@]} "$entry")
+            SummaryFiles=(${SummaryFiles[@]} "$entry")
           done
-          echo "$entry[@]"
+          echo "$SummaryFiles"
           # echo '::set-output name=version_matrix::$entry[@]'
         fi
 
