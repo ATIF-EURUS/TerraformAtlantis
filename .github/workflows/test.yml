@@ -44,6 +44,6 @@ jobs:
         if (( FILESIZE < MAXSIZE)); then 
             echo "<pre><code>${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
         else
-           split -b MAXSIZE terraformplan segment
+           split -b $MAXSIZE terraformplan segment
            ls
         fi
