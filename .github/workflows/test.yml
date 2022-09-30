@@ -54,7 +54,7 @@ jobs:
           # ls
           for entry in "tfplan"*
           do  
-            SummaryFiles+= "$entry"
+            SummaryFiles+="${entry}"
             # SummaryFiles=(${SummaryFiles[@]} "$entry")
           done
           echo ${SummaryFiles[@]}
