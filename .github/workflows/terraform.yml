@@ -33,4 +33,9 @@ jobs:
       run: terraform plan -no-color
       
     - run: echo "<pre><code>${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+    
+      
+    - run: echo "<pre><code>${{ steps.plan.outputs.stderr }}</code></pre>" >> $GITHUB_STEP_SUMMARY
+
+    - run: echo "<pre><code>${{ steps.plan.outputs.exitcode }}</code></pre>" >> $GITHUB_STEP_SUMMARY
 
