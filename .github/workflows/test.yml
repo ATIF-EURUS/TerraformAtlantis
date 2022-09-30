@@ -74,4 +74,5 @@ jobs:
         version: ${{ fromJson(needs.terraform.outputs.version_matrix) }}
     steps:
       - uses: actions/checkout@v2
-      - run: echo "<pre><code>$(cat {{ matrix.version }})</code></pre>" >> $GITHUB_STEP_SUMMARY
+        run: echo "hi"
+      # - run: echo "<pre><code>$(cat {{ matrix.version }})</code></pre>" >> $GITHUB_STEP_SUMMARY
