@@ -41,7 +41,7 @@ jobs:
         FILESIZE=$(stat -c%s "terraformplan")
         MAXSIZE=1000000
         echo "Size of $FILENAME = $FILESIZE bytes."
-        if (( FILESIZE > MAXSIZE)); then 
+        if (( FILESIZE < MAXSIZE)); then 
             echo "<pre><code>3${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
         else
             echo "fine"
