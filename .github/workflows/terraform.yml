@@ -57,7 +57,21 @@ jobs:
     name: 'Terraforms'
     runs-on: ubuntu-latest
     environment: production
+    
+    defaults:
+      run:
+        shell: bash
+
     steps:
+    - name: Checkouts
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform2
+      uses: hashicorp/setup-terraform@v1
+
+    - name: Terraform Init2
+      run: terraform init
+
     - name: Terraform Plan2
       id: plan
       run: terraform plan -no-color
