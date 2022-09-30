@@ -51,11 +51,10 @@ jobs:
         declare -a SummaryFiles=[
         echo "Size of $FILENAME = $FILESIZE bytes."
         ls
-        # if (( FILESIZE < MAXSIZE )); then
-        #   echo "Less than 1MB" 
-        #     # echo "<pre><code>${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
-        # else
-        #   split -b $MAXSIZE terraformplan tfplan
+        if (( FILESIZE < MAXSIZE )); then
+          echo "Less than 1MB" 
+        else
+          split -b $MAXSIZE terraformplan tfplan
         ls
         for entry in *
         do  
