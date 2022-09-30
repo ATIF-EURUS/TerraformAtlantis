@@ -35,4 +35,4 @@ jobs:
       run:  terraform show tfplan.json
 
     - name: Terraform Job Summary Test
-      run:  terraform show tfplan.json >> $GITHUB_STEP_SUMMARY
+      run:  terraform show tfplan.json >> $GITHUB_JOB_SUMMARY
