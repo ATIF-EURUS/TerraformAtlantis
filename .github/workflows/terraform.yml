@@ -34,7 +34,8 @@ jobs:
       
     - run: |
         echo "<pre><code> $(cat test.txt)</code></pre>" >> $GITHUB_STEP_SUMMARY
-    - run: echo  "<pre><code> $(cat test2.txt)</code></pre>" >> >> $GITHUB_STEP_SUMMARY
+    - run: |
+        echo "<pre><code> $(cat test2.txt)</code></pre>" >> $GITHUB_STEP_SUMMARY
     - run: echo "<pre><code>3${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
     - run: echo "<pre><code>4${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
     - run: echo "<pre><code>5${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
