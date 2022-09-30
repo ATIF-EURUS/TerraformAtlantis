@@ -57,7 +57,7 @@ jobs:
             SummaryFiles+="${entry},"
           done
           echo ${SummaryFiles[@]}
-          echo '::set-output name=version_matrix::${SummaryFiles[@]}'
+          echo '::set-output name=version_matrix::$MATRIX_PARAMS_COMBINATIONS]}
         fi
 
 
