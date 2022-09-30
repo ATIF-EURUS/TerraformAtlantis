@@ -18,7 +18,7 @@ jobs:
       run:
         shell: bash
     outputs:
-      version_matrix: ${{ steps.set-matrix.outputs.version_matrix }}
+      version_matrix: ${{ steps.testing.outputs.version_matrix }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -41,6 +41,7 @@ jobs:
       run: cat TerraformPlanFiles/terraformplan
 
     - name: Conditoining 
+      id: testing
       run: |
         FILESIZE=$(stat -c%s "TerraformPlanFiles/test.txt")
         MAXSIZE=1000000
