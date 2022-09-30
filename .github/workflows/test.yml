@@ -73,7 +73,7 @@ jobs:
 
 
   ci:
-    needs: terraform
+    needs: terraform  
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -83,4 +83,5 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: my-artifact
-      - run: echo "<pre><code>$(cat {{ matrix.version }})</code></pre>" >> $GITHUB_STEP_SUMMARY
+      - run: "hi"
+      # - run: echo "<pre><code>$(cat {{ matrix.version }})</code></pre>" >> $GITHUB_STEP_SUMMARY
