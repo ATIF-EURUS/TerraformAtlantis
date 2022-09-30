@@ -32,4 +32,4 @@ jobs:
       run: terraform plan -input=false -out tfplan.json
 
     - name: Terraform Job Summary
-      run:  echo "### $(terraform show tfplan.json) :rocket:" >> $GITHUB_STEP_SUMMARY
+      run:  echo "<pre><code>### $(terraform show tfplan.json)</code></pre> :rocket:" >> $GITHUB_STEP_SUMMARY
