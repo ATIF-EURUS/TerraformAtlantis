@@ -43,6 +43,7 @@ jobs:
       run: |
         FILESIZE=$(stat -c%s "TerraformPlanFiles/test.txt")
         MAXSIZE=1000000
+        declare -a SummaryFiles=()
         echo "Size of $FILENAME = $FILESIZE bytes."
         if (( FILESIZE < MAXSIZE)); then 
             echo "<pre><code>${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
