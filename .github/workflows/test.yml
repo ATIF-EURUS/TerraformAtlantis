@@ -56,7 +56,7 @@ jobs:
           do  
             SummaryFiles=(${SummaryFiles[@]} "$entry")
           done
-          echo "$SummaryFiles"
+          echo $SummaryFiles[@]
           # echo '::set-output name=version_matrix::$entry[@]'
         fi
 
