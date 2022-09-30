@@ -33,5 +33,8 @@ jobs:
 
 #     - name: Terraform Job Summary
 #       run:  echo "### $(terraform show tfplan.json):code:" >> $GITHUB_STEP_SUMMARY
-    - name: Terraform Job Summary t
-      run:  echo "### $(terraform show tfplan.json) :code:" >> $GITHUB_STEP_SUMMARY
+#     - name: Terraform Job Summary t
+#       run:  echo "### $(terraform show tfplan.json) :code:" >> $GITHUB_STEP_SUMMAR- name: Markdown autodocs
+    - uses: dineshsonachalam/markdown-autodocs@v1.0.7
+      with:
+        output_file_paths: '[tfplan.json]'
