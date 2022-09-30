@@ -55,6 +55,7 @@ jobs:
           echo "Less than 1MB" 
         else
           split -b $MAXSIZE test.txt tfplan
+          rm test.txt
         fi
         ls
         for entry in *
@@ -83,5 +84,4 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: my-artifact
-      - run: "hi"
-      # - run: echo "<pre><code>$(cat {{ matrix.version }})</code></pre>" >> $GITHUB_STEP_SUMMARY
+      - run: echo "<pre><code>$(cat {{ matrix.version }})</code></pre>" >> $GITHUB_STEP_SUMMARY
