@@ -55,6 +55,7 @@ jobs:
           echo "Less than 1MB" 
         else
           split -b $MAXSIZE test.txt tfplan
+        fi
         ls
         for entry in *
         do  
@@ -62,7 +63,6 @@ jobs:
         done
         echo ${SummaryFiles[@]}
         echo ::set-output name=version_matrix::${SummaryFiles[@]}']'
-        fi
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
       with:
