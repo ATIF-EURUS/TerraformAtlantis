@@ -21,32 +21,32 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
+    # - name: Setup Terraform
+    #   uses: hashicorp/setup-terraform@v1
 
-    - name: Terraform Init
-      run: terraform init
+    # - name: Terraform Init
+    #   run: terraform init
 
-    - name: Terraform Plan
-      id: plan
-      run: |
-        terraform plan -no-color
+    # - name: Terraform Plan
+    #   id: plan
+    #   run: |
+    #     terraform plan -no-color
 
-    - name: Plan File
-      run: |
-        echo  " ${{ steps.plan.outputs.stdout }} " >> terraformplan
-        mkdir TerraformPlanFiles
-        mv terraformplan TerraformPlanFiles/terraformplan
-        ls
+    # - name: Plan File
+    #   run: |
+    #     echo  " ${{ steps.plan.outputs.stdout }} " >> terraformplan
+    #     mkdir TerraformPlanFiles
+    #     mv terraformplan TerraformPlanFiles/terraformplan
+    #     ls
 
-    - name: Echo Plan File
-      run: cat TerraformPlanFiles/terraformplan
+    # - name: Echo Plan File
+    #   run: cat TerraformPlanFiles/terraformplan
 
     - name: Conditoining 
       id: testing
       run: |
         cd TerraformPlanFiles
-        FILESIZE=$(stat -c%s "terraformplan")
+        FILESIZE=$(stat -c%s "test.txt")
         MAXSIZE=1000000
         declare -a SummaryFiles=[
         echo "Size of $FILENAME = $FILESIZE bytes."
@@ -54,7 +54,7 @@ jobs:
         if (( FILESIZE < MAXSIZE )); then
           echo "Less than 1MB" 
         else
-          split -b $MAXSIZE terraformplan tfplan
+          split -b $MAXSIZE test.txt tfplan
         ls
         for entry in *
         do  
