@@ -51,7 +51,7 @@ jobs:
         declare -a SummaryFiles=[
         echo "Size of $FILENAME = $FILESIZE bytes."
         ls
-        if (( FILESIZE < MAXSIZE)); then
+        if (( FILESIZE < MAXSIZE )); then
           echo "Less than 1MB" 
             # echo "<pre><code>${{ steps.plan.outputs.stdout }}</code></pre>" >> $GITHUB_STEP_SUMMARY
         else
