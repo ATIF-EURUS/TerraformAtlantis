@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: ${{ needs.terraform.outputs.version_matrix }}
+        version: ${{ fromJson(needs.terraform.outputs.version_matrix ) }}
     steps:
       - uses: actions/checkout@v2
       - run: echo ${{ matrix.version }}
