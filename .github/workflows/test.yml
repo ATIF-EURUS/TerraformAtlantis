@@ -84,4 +84,5 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: my-artifact
-      - run: echo "<pre><code>$(cat {{ matrix.version }})</code></pre>" >> $GITHUB_STEP_SUMMARY
+      - run: ls
+      # echo "<pre><code>$(cat {{ matrix.version }})</code></pre>" >> $GITHUB_STEP_SUMMARY
