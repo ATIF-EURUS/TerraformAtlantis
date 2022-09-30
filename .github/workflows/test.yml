@@ -1,5 +1,4 @@
-
-name: 'Testing'
+name: 'Terraform'
 
 on:
   push:
@@ -14,12 +13,25 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     environment: production
+    
     defaults:
       run:
         shell: bash
+
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4 
-      with:
-        python-version: 'pypy3.9' 
-    - run: echo "<pre><code>$(python script.py)</code></pre>" >> $GITHUB_STEP_SUMMARY
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color
+    - name: Plan File
+      run: echo  ${{ steps.plan.outputs.stdout }} >> terraformplan
+    - name: Echo Plan File
+      run: cat terraformplan
