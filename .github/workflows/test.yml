@@ -17,8 +17,8 @@ jobs:
     defaults:
       run:
         shell: bash
-    # outputs:
-    #   version_matrix: ${{ steps.set-matrix.outputs.version_matrix }}
+    outputs:
+      version_matrix: ${{ steps.set-matrix.outputs.version_matrix }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -58,16 +58,16 @@ jobs:
             # SummaryFiles=(${SummaryFiles[@]} "$entry")
           done
           echo ${SummaryFiles[@]}
-          # echo '::set-output name=version_matrix::$entry[@]'
+          echo '::set-output name=version_matrix::${SummaryFiles[@]}'
         fi
 
 
-  # ci:
-  #   needs: build-matrix
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       version: ${{ fromJson(needs.terraform.outputs.version_matrix) }}
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - run: echo ${{ matrix.version }}
+  ci:
+    needs: build-matrix
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ${{ fromJson(needs.terraform.outputs.version_matrix) }}
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo ${{ matrix.version }}
