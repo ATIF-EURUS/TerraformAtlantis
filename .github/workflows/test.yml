@@ -76,6 +76,7 @@ jobs:
 
   ci:
     needs: terraform  
+    name: terraform-${{ matrix.version }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
